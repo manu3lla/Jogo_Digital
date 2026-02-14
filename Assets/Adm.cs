@@ -8,14 +8,10 @@ public class Adm : MonoBehaviour
 
     public TextMeshProUGUI textoPlacar;
 
-    public Transform puck;
-    public Transform posicaoInicialPuck;
-
-    private Rigidbody2D rb;
+    public PuckReset puckReset; // referência do script da puck
 
     void Start()
     {
-        rb = puck.GetComponent<Rigidbody2D>();
         AtualizarPlacar();
     }
 
@@ -23,25 +19,18 @@ public class Adm : MonoBehaviour
     {
         pontosJogadorBaixo++;
         AtualizarPlacar();
-        ResetarPuck();
+        puckReset.Resetar();
     }
 
     public void GolBaixo()
     {
         pontosJogadorCima++;
         AtualizarPlacar();
-        ResetarPuck();
+        puckReset.Resetar();
     }
 
     void AtualizarPlacar()
     {
-        textoPlacar.text = pontosJogadorCima + " x " + pontosJogadorBaixo;
-    }
-
-    void ResetarPuck()
-    {
-        puck.position = posicaoInicialPuck.position;
-        rb.linearVelocity = Vector2.zero;
-        rb.angularVelocity = 0f;
+        textoPlacar.text = pontosJogadorCima + " : " + pontosJogadorBaixo;
     }
 }
