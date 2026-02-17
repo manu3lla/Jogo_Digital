@@ -8,7 +8,7 @@ public class Adm : MonoBehaviour
 
     public TextMeshProUGUI textoPlacar;
 
-    public PuckReset puckReset; // referência do script da puck
+    public PuckReset puckReset;
 
     void Start()
     {

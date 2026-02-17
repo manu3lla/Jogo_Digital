@@ -34,19 +34,15 @@ public class player_2 : MonoBehaviour
         if (bola == null || bolaRb == null) return;
 
         Vector3 alvo;
-
-        // 🛡 DEFESA - bola vindo para cima
         if (bolaRb.linearVelocity.y > 0)
         {
             float previsaoX = bola.position.x + bolaRb.linearVelocity.x * 0.2f;
             alvo = new Vector3(previsaoX, bola.position.y, 0f);
         }
-        // ⚔ ATAQUE - bola está no lado da IA
         else if (bola.position.y > 0)
         {
             alvo = bola.position;
         }
-        // 🏠 REPOSICIONAMENTO
         else
         {
             alvo = new Vector3(0f, 3f, 0f);
